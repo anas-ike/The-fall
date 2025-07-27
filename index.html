@@ -4,22 +4,21 @@
   <meta charset="UTF-8">
   <title>Harry Potter Love Theme</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Add cute/doodly Google fonts for magic effect -->
+  <!-- Doodly & Harry Potter fonts -->
   <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Cinzel|Indie+Flower|Bangers&display=swap" rel="stylesheet">
   <style>
     html, body {
-      margin: 0; padding: 0; height: 100%; width: 100%; box-sizing: border-box;
+      margin: 0; padding: 0; height: 100%; width: 100vw; box-sizing: border-box;
       background: #22223b;
       color: #ffd700;
       font-family: 'Cinzel', serif;
+      max-width: 100vw;
       overflow-x: hidden;
-      overscroll-behavior-y: contain;
-      scroll-behavior: smooth;
     }
+    /* Video section & border */
     .fullscreen-video-section {
       position: relative;
-      width: 100vw;
-      height: 100vh;
+      width: 100vw; height: 100vh;
       overflow: hidden;
       display: flex; justify-content: center; align-items: center;
       background: #2b1b34;
@@ -34,15 +33,15 @@
       content: "";
       position: absolute;
       border: 8px solid gold;
-      border-radius: 26px 60px 24px 60px/44px 20px 44px 28px;
+      border-radius: 36px 48px 30px 50px / 52px 30px 44px 38px;
       box-shadow: 0 0 44px 2px #ebd948, 0 0 0 14px #442e1e83;
-      width: 98vw; height: 95vh;
+      width: 97vw; height: 95vh;
       pointer-events: none; z-index: 2;
-      left: 1vw; top: 2.5vh;
+      left: 1vw; top: 2vh;
       animation: borderGlow 2.5s infinite alternate;
     }
     .hp-border::after {
-      filter: blur(6px); opacity: 0.6; z-index: 1;
+      filter: blur(8px); opacity: 0.44; z-index: 1;
       left: 2vw; top: 4vh;
       border-color: #dcc342e8;
       box-shadow: 0 0 80px 12px #fffde4a0;
@@ -50,16 +49,16 @@
     }
     @keyframes borderGlow {
       from { box-shadow: 0 0 22px 1px #eedc82, 0 0 0 8px #2d190a90;}
-      to   { box-shadow: 0 0 50px 12px #ffe072a8, 0 0 0 14px #9e6e31c0;}
+      to   { box-shadow: 0 0 66px 15px #ffe072a8, 0 0 0 18px #ffd70060;}
     }
     .hp-video {
       z-index: 5;
       width: 94vw; height: 88vh;
       object-fit: contain;
       object-position: center;
-      border-radius: 18px;
+      border-radius: 20px;
       background: #140c1b;
-      box-shadow: 0 6px 34px #000d, 0 0 24px 4px #36310070;
+      box-shadow: 0 6px 34px #000d, 0 0 24px 4px #ffd70070;
       outline: 2px solid #e3ca81;
       display: block;
       margin: 0 auto;
@@ -70,12 +69,12 @@
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%; z-index: 10;
       display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
-      background: linear-gradient(to top, rgba(34,34,59,0.85) 2%, rgba(34,34,59,0.18) 70%, transparent 100%);
+      background: linear-gradient(to top, rgba(34,34,59,0.85) 2%, rgba(34,34,59,0.18) 80%, transparent 100%);
       padding-bottom: 40px;
     }
     header {
       width: 100%; text-align: center;
-      font-size: 2.05em;
+      font-size: 2.2em;
       font-family: 'Great Vibes', cursive;
       letter-spacing: 2px;
       text-shadow: 2px 2px 10px #000, 0 0 20px #aaa, 0 0 2px #ffd700;
@@ -83,7 +82,7 @@
       animation: sparkle 2s infinite alternate;
       margin: 0 auto 5px auto;
       background: none;
-      padding: 0.65em 0 0 0;
+      padding: 0.74em 0 0 0;
       position: relative; z-index: 12;
       pointer-events: auto;
       user-select:none;
@@ -103,15 +102,16 @@
       from { transform: translateY(0);}
       to { transform: translateY(14px);}
     }
+    /* --- Parchment doodle quote --- */
     .parchment {
-      background: rgba(255,245,210, 0.17);
-      border: 3px dashed #efd081;
-      border-radius: 18px;
+      background: rgba(255,245,210,.2);
+      border: 2.7px dashed #efd081;
+      border-radius: 19px;
       padding: 2.3em 1em 1.6em 1em;
       margin: 1.6em auto 0.6em auto;
-      width: 98vw;
-      max-width: 480px;
-      font-size: 1.09em;
+      width: 96vw;
+      max-width: 470px;
+      font-size: 1.16em;
       color: #edd382;
       box-shadow: 0 2px 18px #ecc68d50;
       text-align:center;
@@ -119,25 +119,22 @@
       overflow-x:hidden;
     }
     .magic-quote {
-      font-family: 'Indie Flower', 'Bangers', 'Cinzel', cursive;
-      font-size: 2em;
+      font-family: 'Indie Flower', 'Bangers', cursive;
+      font-size: 2.2em;
       font-weight: bold;
       color: #ffe066;
       text-shadow: 1.5px 2px 0 #31291e, 0 0 10px #ffd700aa;
-      margin: 0.3em 0 0.45em 0;
       letter-spacing:1.4px;
-      line-height:1.23;
-      display:block;
+      margin-top: .2em;
+      line-height:1.22;
       user-select:none;
-      -webkit-user-select:none;
     }
     .magic-always {
       display:block;
-      font-size: 2.5em;
+      font-size: 2.45em;
       font-family: 'Great Vibes', cursive;
       color: #ffd700;
       text-shadow: 0 3px 8px #b58136, 0 0 18px #fdffb7b0;
-      margin: 0.32em 0 0.7em 0;
       animation: magicPulse 1.7s infinite alternate;
     }
     @keyframes magicPulse {
@@ -158,14 +155,14 @@
       to { filter: brightness(2.3) drop-shadow(0 0 9px #ffd700); }
     }
     .scroll-magic {
-      font-family: 'Bangers','Cinzel',cursive;
+      font-family: 'Bangers','Indie Flower',cursive;
       font-size: 1.7em;
       color: #ffee90;
       letter-spacing: 1.2px;
       margin: 0.7em 0 0.1em 0;
       text-shadow: 1.5px 2px 10px #b18116, 0 0 10px #fff8d5f6;
-      background:rgba(59, 56, 28, 0.11);
-      padding: 0.3em 0.5em;
+      background:rgba(59,56,28,0.13);
+      padding: 0.3em 1.1em;
       border-radius:18px;
       display:inline-block;
       animation: scrollAnim 1.14s infinite alternate;
@@ -174,72 +171,51 @@
       from { transform:scale(1);}
       to   { transform:scale(1.07) rotate(-2deg);}
     }
+    /* --- Character images, doodly and mobile --- */
     .character-container {
-      width: 100vw;
-      max-width: 100vw;
-      margin: 54px auto 0 auto;
-      min-height: 264px;
-      position: relative;
-      height: auto;
+      width: 100vw; max-width:100vw;
+      min-height: 50px;
+      margin: 45px auto 0 auto;
       text-align: center;
-      overflow: visible;
+      display:flex; flex-direction:column; align-items:center;
     }
     .char-img {
-      position: absolute;
-      top: 17px;
-      width: 128px;
-      max-width: 36vw;
-      border-radius: 24px;
-      transition: transform 1.05s cubic-bezier(.43,1.2,.6,1.15), opacity 0.9s;
-      opacity: 0;
-      cursor: pointer;
-      z-index: 2;
-      filter: drop-shadow(0 9px 15px #f9e090c0) drop-shadow(0 0 8px #ffd700Bb) drop-shadow(0 0 1px #000);
-      background: #ffd70012;
-      border: 3px solid #edd38277;
-      box-shadow: 0 0 16px #e8d887c6;
+      display: block;
+      width: 126px;
+      max-width: 88vw;
+      border-radius: 22px;
+      margin: 0.8em auto 0.1em auto;
+      box-shadow: 0 4px 16px #e6c156cc, 0 0 0px 3px #ffd70060, 0 0 0px 7px #fff0;
+      background: #ffd70010;
+      border: 3.4px solid #fff4;
+      transition: box-shadow 0.3s, transform 0.25s, border 0.22s;
       touch-action: manipulation;
-      will-change: transform,opacity;
-      outline: 0;
-      user-select: none;
     }
-    .char-img.slide-in-left { transform: translateX(-215px) rotate(-9deg) scale(0.92);}
-    .char-img.slide-in-right { right: 0; transform: translateX(215px) rotate(10deg) scale(0.91);}
-    .char-img.visible { opacity: 0.98; transform: translateX(0) rotate(1.5deg) scale(1);}
-    .char-img.char1 { left: 10vw; }
-    .char-img.char2 { right: 10vw;}
-    .char-img.char3 { left: 15vw; top: 133px; }
     .char-img:active, .char-img.playing {
-      filter: drop-shadow(0 0 28px #fffbecc0);
-      animation: pulse 0.38s;
+      box-shadow: 0 0 30px #fffbecc0;
       border-color: #ffd700;
-      z-index: 99;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1.0);}
-      55% { transform: scale(1.11);}
-      100% { transform: scale(1.0);}
+      transform: scale(1.08) rotate(-2deg);
     }
     .char-label {
-      display:block;
+      display: block;
       font-family:'Indie Flower','Bangers',cursive;
-      font-size: 1.30em;
+      font-size: 1.20em;
       color: #ffd192;
-      background:rgba(58,47,10,0.18);
-      margin-top: 2px;
-      border-radius: 8px; padding: 0.13em 0.26em;
-      pointer-events:none; user-select:none;
-      text-shadow: 0 1px 6px #fff8;
+      margin: 0.13em auto 1.2em auto;
+      text-align: center;
+      text-shadow: 1px 1px 8px #fff6;
+      background:rgba(58,47,10,0.12);
+      border-radius:9px;
     }
-    @media (max-width: 480px) {
-      header { font-size: 1.12em; }
-      .parchment { font-size: 1em; padding: 0.96em 0.22em; margin-top:0.39em;}
-      .character-container { min-height: 151px;}
-      .char-img { width: 33vw; min-width:68px; }
-      .char-img.char3 { top: 83px;}
-      .magic-quote { font-size:1.17em;}
-      .magic-always { font-size: 1.43em;}
-      .scroll-magic { font-size: 1.11em;}
+    @media (max-width: 500px) {
+      header { font-size: 1.15em; padding-top: 0.3em;}
+      .magic-quote { font-size:1.3em;}
+      .magic-always { font-size: 1.44em;}
+      .scroll-magic { font-size: 1.18em;}
+      .character-container { margin-top: 25px;}
+      .char-img { width: 38vw; min-width:66px; }
+      .char-label { font-size: 1em; }
+      .parchment { font-size: 0.98em;}
     }
   </style>
 </head>
@@ -259,7 +235,6 @@
       />
     </div>
   </section>
-
   <div class="parchment">
     <span class="bolt"></span>
     <span class="magic-quote">“After all this time?”</span>
@@ -268,15 +243,15 @@
     <span class="scroll-magic">Scroll down for magic!</span>
   </div>
   <div class="character-container" id="magic-container">
-    <img src="himage.jpg" class="char-img char1 slide-in-left" id="char1" alt="Harry Potter"><span class="char-label" style="left:10vw; top:110px; position:absolute;">Harry</span>
-    <img src="hiimage.jpg" class="char-img char2 slide-in-right" id="char2" alt="Hermione"><span class="char-label" style="right:10vw; top:110px; position:absolute;">Hermione</span>
-    <img src="h1image.jpg" class="char-img char3 slide-in-left" id="char3" alt="Ron"><span class="char-label" style="left:15vw; top:220px; position:absolute;">Ron</span>
+    <img src="himage.jpg" class="char-img" id="char1" alt="Harry"><span class="char-label">Harry</span>
+    <img src="hiimage.jpg" class="char-img" id="char2" alt="Hermione"><span class="char-label">Hermione</span>
+    <img src="h1image.jpg" class="char-img" id="char3" alt="Ron"><span class="char-label">Ron</span>
   </div>
   <audio id="audio1" src="audio1.mp3"></audio>
   <audio id="audio2" src="audio2.mp3"></audio>
   <audio id="audio3" src="audio3.mp3"></audio>
   <script>
-    // Fix: Allow mobile video audio after first interaction
+    // Enable video audio after first interaction for mobile policies
     function enableVideoAudio() {
       var vid = document.getElementById('mainvid');
       if(vid) {
@@ -288,29 +263,6 @@
     }
     document.addEventListener('touchstart', enableVideoAudio, { once: true });
     document.addEventListener('click', enableVideoAudio, { once: true });
-
-    // On scroll, show character images with animation
-    function handleMagicScroll() {
-      const trigger = document.getElementById('magic-container').offsetTop - window.innerHeight / 1.4;
-      if(window.scrollY > trigger) {
-        document.getElementById('char1').classList.add('visible');
-        document.getElementById('char2').classList.add('visible');
-        setTimeout(() => {
-          document.getElementById('char3').classList.add('visible');
-        }, 330);
-      }
-    }
-    window.addEventListener('scroll', handleMagicScroll);
-    setTimeout(() => { window.dispatchEvent(new Event('scroll')); }, 100);
-
-    // Initial animation prep for images
-    function preparePop() {
-      document.getElementById('char1').classList.add('slide-in-left');
-      document.getElementById('char2').classList.add('slide-in-right');
-      document.getElementById('char3').classList.add('slide-in-left');
-    }
-    preparePop();
-
     // Audio-on-click logic
     const sounds = [
       { img: 'char1', audio: 'audio1' },
@@ -320,7 +272,6 @@
     sounds.forEach(function(item){
       const img = document.getElementById(item.img);
       const audio = document.getElementById(item.audio);
-
       img.addEventListener('touchend', function(e){
         e.preventDefault();
         sounds.forEach(obj => {
@@ -332,7 +283,6 @@
         img.classList.add('playing');
         setTimeout(()=>img.classList.remove('playing'), 520);
       }, { passive: false });
-
       img.addEventListener('click', function() {
         sounds.forEach(obj => {
           const a = document.getElementById(obj.audio);
