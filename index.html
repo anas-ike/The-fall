@@ -4,14 +4,11 @@
   <meta charset="UTF-8">
   <title>Harry Potter Love Theme</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Cinzel&display=swap" rel="stylesheet">
+  <!-- Add cute/doodly Google fonts for magic effect -->
+  <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Cinzel|Indie+Flower|Bangers&display=swap" rel="stylesheet">
   <style>
     html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      box-sizing: border-box;
+      margin: 0; padding: 0; height: 100%; width: 100%; box-sizing: border-box;
       background: #22223b;
       color: #ffd700;
       font-family: 'Cinzel', serif;
@@ -24,18 +21,13 @@
       width: 100vw;
       height: 100vh;
       overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: flex; justify-content: center; align-items: center;
       background: #2b1b34;
     }
     .hp-border {
       position: relative;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      width: 100vw; height: 100vh;
+      display: flex; justify-content: center; align-items: center;
       background: none;
     }
     .hp-border::before, .hp-border::after {
@@ -44,17 +36,13 @@
       border: 8px solid gold;
       border-radius: 26px 60px 24px 60px/44px 20px 44px 28px;
       box-shadow: 0 0 44px 2px #ebd948, 0 0 0 14px #442e1e83;
-      width: 98vw;
-      height: 95vh;
-      pointer-events: none;
-      z-index: 2;
+      width: 98vw; height: 95vh;
+      pointer-events: none; z-index: 2;
       left: 1vw; top: 2.5vh;
       animation: borderGlow 2.5s infinite alternate;
     }
     .hp-border::after {
-      filter: blur(6px);
-      opacity: 0.6;
-      z-index: 1;
+      filter: blur(6px); opacity: 0.6; z-index: 1;
       left: 2vw; top: 4vh;
       border-color: #dcc342e8;
       box-shadow: 0 0 80px 12px #fffde4a0;
@@ -66,8 +54,7 @@
     }
     .hp-video {
       z-index: 5;
-      width: 94vw;
-      height: 88vh;
+      width: 94vw; height: 88vh;
       object-fit: contain;
       object-position: center;
       border-radius: 18px;
@@ -81,20 +68,13 @@
     .video-overlay {
       pointer-events: none;
       position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
+      top: 0; left: 0; width: 100%; height: 100%; z-index: 10;
+      display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
       background: linear-gradient(to top, rgba(34,34,59,0.85) 2%, rgba(34,34,59,0.18) 70%, transparent 100%);
       padding-bottom: 40px;
     }
     header {
-      width: 100%;
-      text-align: center;
+      width: 100%; text-align: center;
       font-size: 2.05em;
       font-family: 'Great Vibes', cursive;
       letter-spacing: 2px;
@@ -104,57 +84,101 @@
       margin: 0 auto 5px auto;
       background: none;
       padding: 0.65em 0 0 0;
-      position: relative;
-      z-index: 12;
+      position: relative; z-index: 12;
       pointer-events: auto;
+      user-select:none;
     }
     @keyframes sparkle {
       from { text-shadow: 2px 2px 10px #000, 0 0 20px #aaa, 0 0 0 #ffd700; }
       to { text-shadow: 2px 2px 35px #ffd700, 0 0 60px #fff, 0 0 35px #ffd700; }
     }
     .scroll-down-arrow {
-      width: 35px;
-      height: 45px;
+      width: 35px; height: 45px;
       margin: 22px auto 0 auto;
       display: block;
       animation: arrow-bounce 1.1s infinite alternate;
-      z-index: 25;
-      pointer-events: auto;
+      z-index: 25; pointer-events: auto;
     }
     @keyframes arrow-bounce {
       from { transform: translateY(0);}
       to { transform: translateY(14px);}
     }
-    /* Section after video */
     .parchment {
-      background: rgba(255,245,210, 0.14);
-      border: 2px dashed #efd081;
-      border-radius: 15px;
-      padding: 1.7em 0.7em;
-      margin: 0.8em auto 0 auto;
-      width: 94vw;
-      max-width: 410px;
-      font-size: 1.01em;
+      background: rgba(255,245,210, 0.17);
+      border: 3px dashed #efd081;
+      border-radius: 18px;
+      padding: 2.3em 1em 1.6em 1em;
+      margin: 1.6em auto 0.6em auto;
+      width: 98vw;
+      max-width: 480px;
+      font-size: 1.09em;
       color: #edd382;
       box-shadow: 0 2px 18px #ecc68d50;
+      text-align:center;
+      position:relative;
+      overflow-x:hidden;
+    }
+    .magic-quote {
+      font-family: 'Indie Flower', 'Bangers', 'Cinzel', cursive;
+      font-size: 2em;
+      font-weight: bold;
+      color: #ffe066;
+      text-shadow: 1.5px 2px 0 #31291e, 0 0 10px #ffd700aa;
+      margin: 0.3em 0 0.45em 0;
+      letter-spacing:1.4px;
+      line-height:1.23;
+      display:block;
+      user-select:none;
+      -webkit-user-select:none;
+    }
+    .magic-always {
+      display:block;
+      font-size: 2.5em;
+      font-family: 'Great Vibes', cursive;
+      color: #ffd700;
+      text-shadow: 0 3px 8px #b58136, 0 0 18px #fdffb7b0;
+      margin: 0.32em 0 0.7em 0;
+      animation: magicPulse 1.7s infinite alternate;
+    }
+    @keyframes magicPulse {
+      to {
+        text-shadow: 0 4px 18px #fff2cc, 0 0 30px #f5e48aa0;
+        color: #fff9d6;
+      }
     }
     .bolt {
-      width: 29px;
-      height: 40px;
-      margin: 22px auto;
+      width: 34px; height: 44px;
+      margin: 1.1em auto 0.8em auto;
       display: block;
-      background: url('data:image/svg+xml;utf8,<svg height="40" width="29" xmlns="http://www.w3.org/2000/svg"><polygon points="12,0 25,14 19,14 29,40 10,22 16,22" fill="gold"/></svg>') no-repeat center;
+      background: url('data:image/svg+xml;utf8,<svg height="44" width="34" xmlns="http://www.w3.org/2000/svg"><polygon points="14,0 33,19 22,19 34,44 11,24 19,24" fill="gold"/></svg>') no-repeat center;
       animation: flicker 1s infinite alternate;
     }
     @keyframes flicker {
       from { filter: brightness(1.1); }
-      to { filter: brightness(2.3) drop-shadow(0 0 10px #ffd700); }
+      to { filter: brightness(2.3) drop-shadow(0 0 9px #ffd700); }
+    }
+    .scroll-magic {
+      font-family: 'Bangers','Cinzel',cursive;
+      font-size: 1.7em;
+      color: #ffee90;
+      letter-spacing: 1.2px;
+      margin: 0.7em 0 0.1em 0;
+      text-shadow: 1.5px 2px 10px #b18116, 0 0 10px #fff8d5f6;
+      background:rgba(59, 56, 28, 0.11);
+      padding: 0.3em 0.5em;
+      border-radius:18px;
+      display:inline-block;
+      animation: scrollAnim 1.14s infinite alternate;
+    }
+    @keyframes scrollAnim {
+      from { transform:scale(1);}
+      to   { transform:scale(1.07) rotate(-2deg);}
     }
     .character-container {
       width: 100vw;
       max-width: 100vw;
-      margin: 50px auto 0 auto;
-      min-height: 314px;
+      margin: 54px auto 0 auto;
+      min-height: 264px;
       position: relative;
       height: auto;
       text-align: center;
@@ -163,54 +187,66 @@
     .char-img {
       position: absolute;
       top: 17px;
-      width: 100px;
-      transition: transform 1.1s cubic-bezier(.68,-0.55,.27,1.55), opacity 1s;
+      width: 128px;
+      max-width: 36vw;
+      border-radius: 24px;
+      transition: transform 1.05s cubic-bezier(.43,1.2,.6,1.15), opacity 0.9s;
       opacity: 0;
       cursor: pointer;
       z-index: 2;
-      filter: drop-shadow(0 7px 9px #190d25a0) drop-shadow(0 0 7px #ffd70080);
-      background: none;
+      filter: drop-shadow(0 9px 15px #f9e090c0) drop-shadow(0 0 8px #ffd700Bb) drop-shadow(0 0 1px #000);
+      background: #ffd70012;
+      border: 3px solid #edd38277;
+      box-shadow: 0 0 16px #e8d887c6;
       touch-action: manipulation;
+      will-change: transform,opacity;
+      outline: 0;
+      user-select: none;
     }
-    .char-img.slide-in-left {
-      transform: translateX(-210px) rotate(-13deg);
-    }
-    .char-img.slide-in-right {
-      right: 0;
-      transform: translateX(210px) rotate(13deg);
-    }
-    .char-img.visible {
-      opacity: 1;
-      transform: translateX(0) rotate(0);
-    }
+    .char-img.slide-in-left { transform: translateX(-215px) rotate(-9deg) scale(0.92);}
+    .char-img.slide-in-right { right: 0; transform: translateX(215px) rotate(10deg) scale(0.91);}
+    .char-img.visible { opacity: 0.98; transform: translateX(0) rotate(1.5deg) scale(1);}
     .char-img.char1 { left: 10vw; }
     .char-img.char2 { right: 10vw;}
-    .char-img.char3 { left: 15vw; top: 130px; }
+    .char-img.char3 { left: 15vw; top: 133px; }
     .char-img:active, .char-img.playing {
-      filter: drop-shadow(0 0 18px #f5df4ea0);
-      animation: pulse 0.5s;
+      filter: drop-shadow(0 0 28px #fffbecc0);
+      animation: pulse 0.38s;
+      border-color: #ffd700;
+      z-index: 99;
     }
     @keyframes pulse {
       0% { transform: scale(1.0);}
-      55% { transform: scale(1.08);}
+      55% { transform: scale(1.11);}
       100% { transform: scale(1.0);}
     }
-    @media (max-width: 600px) {
-      header { font-size: 1.25em; padding-top: 0.5em;}
-      .parchment { font-size: .97em; padding: 1em 0.3em;}
-      .character-container { min-height: 200px;}
-      .char-img { width: 75px;}
-      .char-img.char3 { top: 87px;}
-      .hp-border::before { width: 99vw; height: 99vh; border-width: 5px;}
-      .hp-border::after { border-width: 4px;}
-      .hp-video { width: 98vw; height: 80vw; min-height: 40vh;}
+    .char-label {
+      display:block;
+      font-family:'Indie Flower','Bangers',cursive;
+      font-size: 1.30em;
+      color: #ffd192;
+      background:rgba(58,47,10,0.18);
+      margin-top: 2px;
+      border-radius: 8px; padding: 0.13em 0.26em;
+      pointer-events:none; user-select:none;
+      text-shadow: 0 1px 6px #fff8;
+    }
+    @media (max-width: 480px) {
+      header { font-size: 1.12em; }
+      .parchment { font-size: 1em; padding: 0.96em 0.22em; margin-top:0.39em;}
+      .character-container { min-height: 151px;}
+      .char-img { width: 33vw; min-width:68px; }
+      .char-img.char3 { top: 83px;}
+      .magic-quote { font-size:1.17em;}
+      .magic-always { font-size: 1.43em;}
+      .scroll-magic { font-size: 1.11em;}
     }
   </style>
 </head>
 <body>
   <section class="fullscreen-video-section">
     <div class="hp-border">
-      <video class="hp-video" src="video.mp4" autoplay loop playsinline controls id="mainvid" poster="himage.png"></video>
+      <video class="hp-video" src="video.mp4" autoplay loop playsinline controls id="mainvid" poster="himage.jpg"></video>
     </div>
     <div class="video-overlay">
       <header>
@@ -225,18 +261,16 @@
   </section>
 
   <div class="parchment">
-    <div style="text-align:center;">
-      <span class="bolt"></span>
-    </div>
-    <p style="text-align:center;">
-      “After all this time?”<br><span style="font-size:1.3em;color:#ffd700;">“Always.”</span>
-    </p>
-    <p style="font-family:'Great Vibes',cursive; font-size:1.16em; text-align:center; color:#fee;">Scroll down for magic!</p>
+    <span class="bolt"></span>
+    <span class="magic-quote">“After all this time?”</span>
+    <span class="magic-always">“Always.”</span>
+    <br>
+    <span class="scroll-magic">Scroll down for magic!</span>
   </div>
   <div class="character-container" id="magic-container">
-    <img src="himage.svg" class="char-img char1 slide-in-left" id="char1" title="Harry" alt="Character 1">
-    <img src="hiimage.svg" class="char-img char2 slide-in-right" id="char2" title="Hermione" alt="Character 2">
-    <img src="h1image.svg" class="char-img char3 slide-in-left" id="char3" title="Ron" alt="Character 3">
+    <img src="himage.jpg" class="char-img char1 slide-in-left" id="char1" alt="Harry Potter"><span class="char-label" style="left:10vw; top:110px; position:absolute;">Harry</span>
+    <img src="hiimage.jpg" class="char-img char2 slide-in-right" id="char2" alt="Hermione"><span class="char-label" style="right:10vw; top:110px; position:absolute;">Hermione</span>
+    <img src="h1image.jpg" class="char-img char3 slide-in-left" id="char3" alt="Ron"><span class="char-label" style="left:15vw; top:220px; position:absolute;">Ron</span>
   </div>
   <audio id="audio1" src="audio1.mp3"></audio>
   <audio id="audio2" src="audio2.mp3"></audio>
@@ -289,7 +323,6 @@
 
       img.addEventListener('touchend', function(e){
         e.preventDefault();
-        // Stop other audios
         sounds.forEach(obj => {
           const a = document.getElementById(obj.audio);
           a.pause(); a.currentTime = 0;
