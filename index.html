@@ -2,267 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Harry Potter Love Theme</title>
+  <title>The Fall — Magical Q&A</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Doodly & Harry Potter fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Cinzel|Indie+Flower|Bangers&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Bangers|Great+Vibes&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      margin: 0; padding: 0; height: 100%; width: 100vw; box-sizing: border-box;
-      background: #22223b;
-      color: #ffd700;
-      font-family: 'Cinzel', serif;
-      max-width: 100vw;
-      overflow-x: hidden;
+    body {
+      margin: 0; padding: 0;
+      min-height: 100vh;
+      background: #faf8f6;
+      font-family: 'Indie Flower', cursive;
+      display: flex; flex-direction: column; align-items: center;
     }
-    /* Video section & border */
-    .fullscreen-video-section {
-      position: relative;
-      width: 100vw; height: 100vh;
-      overflow: hidden;
-      display: flex; justify-content: center; align-items: center;
-      background: #2b1b34;
-    }
-    .hp-border {
-      position: relative;
-      width: 100vw; height: 100vh;
-      display: flex; justify-content: center; align-items: center;
-      background: none;
-    }
-    .hp-border::before, .hp-border::after {
-      content: "";
-      position: absolute;
-      border: 8px solid gold;
-      border-radius: 36px 48px 30px 50px / 52px 30px 44px 38px;
-      box-shadow: 0 0 44px 2px #ebd948, 0 0 0 14px #442e1e83;
-      width: 97vw; height: 95vh;
-      pointer-events: none; z-index: 2;
-      left: 1vw; top: 2vh;
-      animation: borderGlow 2.5s infinite alternate;
-    }
-    .hp-border::after {
-      filter: blur(8px); opacity: 0.44; z-index: 1;
-      left: 2vw; top: 4vh;
-      border-color: #dcc342e8;
-      box-shadow: 0 0 80px 12px #fffde4a0;
-      border-radius: 50px 30px 60px 22px/38px 52px 14px 68px;
-    }
-    @keyframes borderGlow {
-      from { box-shadow: 0 0 22px 1px #eedc82, 0 0 0 8px #2d190a90;}
-      to   { box-shadow: 0 0 66px 15px #ffe072a8, 0 0 0 18px #ffd70060;}
-    }
-    .hp-video {
-      z-index: 5;
-      width: 94vw; height: 88vh;
-      object-fit: contain;
-      object-position: center;
-      border-radius: 20px;
-      background: #140c1b;
-      box-shadow: 0 6px 34px #000d, 0 0 24px 4px #ffd70070;
-      outline: 2px solid #e3ca81;
-      display: block;
-      margin: 0 auto;
-      transition: box-shadow 0.3s;
-    }
-    .video-overlay {
-      pointer-events: none;
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%; z-index: 10;
-      display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
-      background: linear-gradient(to top, rgba(34,34,59,0.85) 2%, rgba(34,34,59,0.18) 80%, transparent 100%);
-      padding-bottom: 40px;
-    }
-    header {
-      width: 100%; text-align: center;
-      font-size: 2.2em;
-      font-family: 'Great Vibes', cursive;
-      letter-spacing: 2px;
-      text-shadow: 2px 2px 10px #000, 0 0 20px #aaa, 0 0 2px #ffd700;
-      color: #ffd700;
-      animation: sparkle 2s infinite alternate;
-      margin: 0 auto 5px auto;
-      background: none;
-      padding: 0.74em 0 0 0;
-      position: relative; z-index: 12;
-      pointer-events: auto;
-      user-select:none;
-    }
-    @keyframes sparkle {
-      from { text-shadow: 2px 2px 10px #000, 0 0 20px #aaa, 0 0 0 #ffd700; }
-      to { text-shadow: 2px 2px 35px #ffd700, 0 0 60px #fff, 0 0 35px #ffd700; }
-    }
-    .scroll-down-arrow {
-      width: 35px; height: 45px;
-      margin: 22px auto 0 auto;
-      display: block;
-      animation: arrow-bounce 1.1s infinite alternate;
-      z-index: 25; pointer-events: auto;
-    }
-    @keyframes arrow-bounce {
-      from { transform: translateY(0);}
-      to { transform: translateY(14px);}
-    }
-    /* --- Parchment doodle quote --- */
-    .parchment {
-      background: rgba(255,245,210,.2);
-      border: 2.7px dashed #efd081;
-      border-radius: 19px;
-      padding: 2.3em 1em 1.6em 1em;
-      margin: 1.6em auto 0.6em auto;
+    .main-card {
+      margin: 32px auto 0 auto;
+      background: #fffbe9;
+      max-width: 340px;
       width: 96vw;
-      max-width: 470px;
-      font-size: 1.16em;
-      color: #edd382;
-      box-shadow: 0 2px 18px #ecc68d50;
-      text-align:center;
-      position:relative;
-      overflow-x:hidden;
+      border-radius: 20px;
+      box-shadow: 0 6px 24px #e4b83f44;
+      padding: 2em 1em 1.5em 1em;
+      text-align: center;
+      position: relative;
     }
-    .magic-quote {
-      font-family: 'Indie Flower', 'Bangers', cursive;
-      font-size: 2.2em;
-      font-weight: bold;
-      color: #ffe066;
-      text-shadow: 1.5px 2px 0 #31291e, 0 0 10px #ffd700aa;
-      letter-spacing:1.4px;
-      margin-top: .2em;
-      line-height:1.22;
-      user-select:none;
+    .main-title {
+      font-family: 'Bangers', cursive;
+      font-size: 2em;
+      margin: .2em 0 .15em 0;
+      color: #e1ae3e;
+      text-shadow: 0 2px 10px #ead16499;
+      letter-spacing: 2px;
     }
-    .magic-always {
-      display:block;
-      font-size: 2.45em;
+    .quote {
       font-family: 'Great Vibes', cursive;
-      color: #ffd700;
-      text-shadow: 0 3px 8px #b58136, 0 0 18px #fdffb7b0;
-      animation: magicPulse 1.7s infinite alternate;
-    }
-    @keyframes magicPulse {
-      to {
-        text-shadow: 0 4px 18px #fff2cc, 0 0 30px #f5e48aa0;
-        color: #fff9d6;
-      }
-    }
-    .bolt {
-      width: 34px; height: 44px;
-      margin: 1.1em auto 0.8em auto;
-      display: block;
-      background: url('data:image/svg+xml;utf8,<svg height="44" width="34" xmlns="http://www.w3.org/2000/svg"><polygon points="14,0 33,19 22,19 34,44 11,24 19,24" fill="gold"/></svg>') no-repeat center;
-      animation: flicker 1s infinite alternate;
-    }
-    @keyframes flicker {
-      from { filter: brightness(1.1); }
-      to { filter: brightness(2.3) drop-shadow(0 0 9px #ffd700); }
+      font-size: 1.35em;
+      color: #b89036;
+      margin: 1.3em 0 1.2em 0;
+      letter-spacing: 1px;
     }
     .scroll-magic {
-      font-family: 'Bangers','Indie Flower',cursive;
-      font-size: 1.7em;
-      color: #ffee90;
-      letter-spacing: 1.2px;
-      margin: 0.7em 0 0.1em 0;
-      text-shadow: 1.5px 2px 10px #b18116, 0 0 10px #fff8d5f6;
-      background:rgba(59,56,28,0.13);
-      padding: 0.3em 1.1em;
-      border-radius:18px;
-      display:inline-block;
-      animation: scrollAnim 1.14s infinite alternate;
+      font-family: 'Indie Flower', cursive;
+      font-size: 1.05em;
+      color: #ffd700;
+      background: #fae08f;
+      padding: .4em .8em;
+      border-radius: 12px;
+      margin: 2em auto 1.1em auto;
+      display: inline-block;
+      box-shadow: 0 2px 8px #ead16444;
+      animation: bounce-text 1.2s infinite alternate;
     }
-    @keyframes scrollAnim {
-      from { transform:scale(1);}
-      to   { transform:scale(1.07) rotate(-2deg);}
+    @keyframes bounce-text {
+      from { transform: translateY(0);}
+      to   { transform: translateY(5px);}
     }
-    /* --- Character images, doodly and mobile --- */
-    .character-container {
-      width: 100vw; max-width:100vw;
-      min-height: 50px;
-      margin: 45px auto 0 auto;
-      text-align: center;
-      display:flex; flex-direction:column; align-items:center;
+    .char-section {
+      margin: 0 auto 0 auto;
+      display: flex; flex-direction: column; align-items: center; gap: 1.2em;
+    }
+    .char-block {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
     }
     .char-img {
       display: block;
-      width: 126px;
-      max-width: 88vw;
-      border-radius: 22px;
-      margin: 0.8em auto 0.1em auto;
-      box-shadow: 0 4px 16px #e6c156cc, 0 0 0px 3px #ffd70060, 0 0 0px 7px #fff0;
-      background: #ffd70010;
-      border: 3.4px solid #fff4;
-      transition: box-shadow 0.3s, transform 0.25s, border 0.22s;
-      touch-action: manipulation;
+      width: 92px;
+      height: 92px;
+      object-fit: cover;
+      border: 3px dashed #ffea85;
+      border-radius: 60px;
+      box-shadow: 0 4px 18px #ffe38588;
+      margin-bottom: 0.48em;
+      transition: box-shadow .2s;
+      background: #fff4cb;
     }
-    .char-img:active, .char-img.playing {
-      box-shadow: 0 0 30px #fffbecc0;
-      border-color: #ffd700;
-      transform: scale(1.08) rotate(-2deg);
-    }
+    .char-img:active,
+    .char-img.playing { box-shadow: 0 0 16px 4px #ffd700be, 0 0 4px #fff; }
     .char-label {
-      display: block;
-      font-family:'Indie Flower','Bangers',cursive;
-      font-size: 1.20em;
-      color: #ffd192;
-      margin: 0.13em auto 1.2em auto;
-      text-align: center;
-      text-shadow: 1px 1px 8px #fff6;
-      background:rgba(58,47,10,0.12);
-      border-radius:9px;
+      font-size: 1.14em;
+      color: #b89036;
+      background: #f9e0a8cc;
+      padding: .16em .8em;
+      border-radius: 10px;
+      margin-bottom: 2px;
+      font-family: 'Indie Flower', cursive;
+      letter-spacing: .8px;
+      text-shadow: 0 1px 6px #fff7;
+      user-select:none;
     }
-    @media (max-width: 500px) {
-      header { font-size: 1.15em; padding-top: 0.3em;}
-      .magic-quote { font-size:1.3em;}
-      .magic-always { font-size: 1.44em;}
-      .scroll-magic { font-size: 1.18em;}
-      .character-container { margin-top: 25px;}
-      .char-img { width: 38vw; min-width:66px; }
-      .char-label { font-size: 1em; }
-      .parchment { font-size: 0.98em;}
+    @media (max-width: 400px) {
+      .main-card { padding: 1.2em 1em 1em 1em; }
+      .char-img { width: 62px; height: 62px; }
+      .main-title { font-size: 1.4em;}
     }
   </style>
 </head>
 <body>
-  <section class="fullscreen-video-section">
-    <div class="hp-border">
-      <video class="hp-video" src="video.mp4" autoplay loop playsinline controls id="mainvid" poster="himage.jpg"></video>
+  <div class="main-card">
+    <div class="main-title">Harry Potter Love Magic</div>
+    <div class="quote">“After all this time?”<br> <b>“Always.”</b></div>
+    <div class="scroll-magic">Scroll down for magic!</div>
+    <div class="char-section">
+      <div class="char-block">
+        <img src="himage.jpg" class="char-img" id="char1" alt="Harry">
+        <span class="char-label">Harry</span>
+      </div>
+      <div class="char-block">
+        <img src="hiimage.jpg" class="char-img" id="char2" alt="Hermione">
+        <span class="char-label">Hermione</span>
+      </div>
+      <div class="char-block">
+        <img src="h1image.jpg" class="char-img" id="char3" alt="Ron">
+        <span class="char-label">Ron</span>
+      </div>
     </div>
-    <div class="video-overlay">
-      <header>
-        Harry Potter &hearts; Love Magic
-      </header>
-      <img 
-        src="data:image/svg+xml;utf8,<svg viewBox='0 0 25 25' width='36' height='36' xmlns='http://www.w3.org/2000/svg'><g stroke='gold' stroke-width='2' fill='none'><path d='M12.5 6v13M12.5 19l4-4M12.5 19l-4-4'/></g></svg>"
-        alt="Scroll Down"
-        class="scroll-down-arrow"
-      />
-    </div>
-  </section>
-  <div class="parchment">
-    <span class="bolt"></span>
-    <span class="magic-quote">“After all this time?”</span>
-    <span class="magic-always">“Always.”</span>
-    <br>
-    <span class="scroll-magic">Scroll down for magic!</span>
-  </div>
-  <div class="character-container" id="magic-container">
-    <img src="himage.jpg" class="char-img" id="char1" alt="Harry"><span class="char-label">Harry</span>
-    <img src="hiimage.jpg" class="char-img" id="char2" alt="Hermione"><span class="char-label">Hermione</span>
-    <img src="h1image.jpg" class="char-img" id="char3" alt="Ron"><span class="char-label">Ron</span>
   </div>
   <audio id="audio1" src="audio1.mp3"></audio>
   <audio id="audio2" src="audio2.mp3"></audio>
   <audio id="audio3" src="audio3.mp3"></audio>
   <script>
-    // Enable video audio after first interaction for mobile policies
-    function enableVideoAudio() {
-      var vid = document.getElementById('mainvid');
-      if(vid) {
-        vid.muted = false;
-        vid.play && vid.play();
-      }
-      document.removeEventListener('touchstart', enableVideoAudio);
-      document.removeEventListener('click', enableVideoAudio);
-    }
-    document.addEventListener('touchstart', enableVideoAudio, { once: true });
-    document.addEventListener('click', enableVideoAudio, { once: true });
     // Audio-on-click logic
     const sounds = [
       { img: 'char1', audio: 'audio1' },
