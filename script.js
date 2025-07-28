@@ -1,4 +1,3 @@
-// Enable video audio after first user gesture (for mobile policies)
 window.addEventListener('touchend', enableVideoAudio, { once: true });
 window.addEventListener('click', enableVideoAudio, { once: true });
 
@@ -10,7 +9,6 @@ function enableVideoAudio() {
   }
 }
 
-// Typewriter message effect with audio for each character
 const characterButtons = document.querySelectorAll('.char-img');
 characterButtons.forEach(Element => Element.addEventListener('click', showMessage));
 
@@ -18,7 +16,6 @@ function showMessage(event) {
     const index = event.target.getAttribute('data-index');
     const message = document.querySelector(`.m${index}`);
     const audio = document.getElementById(`audio${index}`);
-    // Collapse all first
     document.querySelectorAll('.message').forEach(m => m.classList.add('collapsed'));
     document.querySelectorAll('.char-img').forEach(img => img.classList.remove('playing'));
     // If already open, collapse
@@ -29,7 +26,6 @@ function showMessage(event) {
       event.target.classList.remove('playing');
       return;
     }
-    // Reveal with typewriter
     const messageCopy = message.textContent;
     message.classList.remove('collapsed');
     message.textContent = '';
