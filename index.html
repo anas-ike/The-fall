@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=480, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Harry Potter Love Magic</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400;500;700&family=Indie+Flower&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>The Magic Begins</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster">
+  <style>
+    body { margin: 0; font-family: 'Indie Flower', cursive; background: #2e1f43; color: #fff; }
+    .video-bg { position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;object-fit:cover;}
+    .overlay { position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(46,31,67,0.45);z-index:1;}
+    .front-text { position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);text-align:center;font-family:Lobster,cursive;font-size:2.5em;}
+    .gallery { margin-top:110vh; display:flex; justify-content:center; gap:40px;}
+    .doodle-frame { border:5px dashed #fff3ab; border-radius:20px; background:#3d2a58; padding:25px; box-shadow:0 6px 16px #31204f88; cursor:pointer; }
+    .character-img { width:170px; height:240px; object-fit:cover; border-radius:12px; }
+    .speech-bubble { position:absolute; top:100vh; left:50%; transform:translateX(-50%); background:#fff3ab; color:#31204f; padding:10px 21px; border-radius:22px; font-size:1.1em; z-index:2;}
+    .owl-mascot { position:fixed; right:27px; bottom:20px; width:70px; z-index:3; cursor:pointer;}
+  </style>
 </head>
 <body>
-  <!-- FULLSCREEN PORTRAIT VIDEO HERO -->
-  <section class="fullscreen-hero">
-    <video id="mainvid" src="video.mp4" autoplay loop playsinline muted poster="himage.jpg"></video>
-    <div class="overlay">
-      <header>Harry Potter &hearts; Love Magic</header>
-      <span class="down-indicator">&#8595;</span>
+  <video class="video-bg" src="harrypotter_intro.mp4" autoplay muted loop></video>
+  <div class="overlay"></div>
+  <div class="front-text">
+    Welcome to The Magic Begins—<br>
+    <span style="font-size:0.7em;">Your Wizarding Adventure Awaits!</span>
+  </div>
+  <div class="speech-bubble">Tap a friend to hear their message!</div>
+  <div class="gallery">
+    <div class="doodle-frame" onclick="playVoice('hagrid.mp3')">
+      <img src="hiimage.jpg" class="character-img" alt="Hagrid" />
     </div>
-  </section>
-
-  <!-- COMPACT CONTENT CARD -->
-  <main>
-    <div class="main-card">
-      <div class="quote">“After all this time?”<br><b>“Always.”</b></div>
-      <div class="scroll-magic">Scroll down for magic!</div>
-      <div class="char-section">
-        <div class="char-block">
-          <img src="himage.jpg" class="char-img" id="char1" alt="Harry" data-index="1">
-          <audio id="audio1" src="audio1.mp3"></audio>
-          <span class="char-label">Harry</span>
-          <p class="message m1 collapsed">“I promise, just like real magic, my love and friendship will always be on your side. Through mischief and mystery, you can always count on this wizard!”</p>
-        </div>
-        <div class="char-block">
-          <img src="hiimage.jpg" class="char-img" id="char2" alt="Hermione" data-index="2">
-          <audio id="audio2" src="audio2.mp3"></audio>
-          <span class="char-label">Hermione</span>
-          <p class="message m2 collapsed">“Even in Hogwarts, books and wisdom don’t compare to the magic of true friendship and love. You are cherished, always!”</p>
-        </div>
-        <div class="char-block">
-          <img src="h1image.jpg" class="char-img" id="char3" alt="Ron" data-index="3">
-          <audio id="audio3" src="audio3.mp3"></audio>
-          <span class="char-label">Ron</span>
-          <p class="message m3 collapsed">“No matter how bonkers things get, remember: you have a friend who will share every Chocolate Frog and adventure — always!”</p>
-        </div>
-      </div>
+    <div class="doodle-frame" onclick="playVoice('hermione.mp3')">
+      <img src="h1image.jpg" class="character-img" alt="Hermione" />
     </div>
-    <footer>
-      <p>made with &lt;3 by anas.ike</p>
-    </footer>
-  </main>
-  <script src="script.js"></script>
+    <div class="doodle-frame" onclick="playVoice('harry.mp3')">
+      <img src="himage.jpg" class="character-img" alt="Harry" />
+    </div>
+  </div>
+  <img src="doodly-owl.png" class="owl-mascot" title="Hoot! Need tips?"/>
+  <audio id="voice-note" hidden></audio>
+  <script>
+     function playVoice(filename) {
+        var audio = document.getElementById("voice-note");
+        audio.src = filename;
+        audio.play();
+     }
+  </script>
 </body>
 </html>
