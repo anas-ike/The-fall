@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400;500;700&family=Indie+Flower&display=swap');
 
-html, body { margin: 0; padding: 0; overflow-x: hidden; background: #FFFDED; color: #2e2e2e; font-family: 'Caveat', 'Indie Flower', cursive; }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background: #FFFDED;
+  color: #2e2e2e;
+  font-family: 'Caveat', 'Indie Flower', cursive;
+  overflow-x: hidden;
+}
 
-/* Fullscreen video hero */
+/* Fullscreen hero video in portrait (480x864) */
 .fullscreen-hero {
   position: relative;
   width: 100vw;
@@ -22,48 +31,44 @@ html, body { margin: 0; padding: 0; overflow-x: hidden; background: #FFFDED; col
   position: absolute;
   top: 0; left: 0;
   z-index: 1;
+  max-width: 100vw;
+  max-height: 100vh;
 }
+
 .fullscreen-hero .overlay {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
   z-index: 2; pointer-events: none;
-  background: linear-gradient(
-    to top,
-    rgba(34, 34, 59, .52) 12%,
-    rgba(34,34,59,0.12) 60%,
-    transparent 100%
-  );
-  padding-bottom: 56px;
+  background: linear-gradient(to top, rgba(34,34,59,.58) 20%, rgba(34,34,59,0.07) 50%, transparent 90%);
+  padding-bottom: 60px;
 }
 .fullscreen-hero header {
   font-family: 'Caveat Brush', cursive;
-  font-size: 2em;
+  font-size: 2.1em;
   color: #ffd700;
   text-shadow: 2px 2px 10px #000, 0 0 20px #fff;
   pointer-events: auto;
-  margin-bottom: 1.4em;
+  margin-bottom: 1.1em;
 }
 .down-indicator {
   color: #ffd700;
-  font-size: 2.5em;
+  font-size: 2.4em;
   animation: bounce 1s infinite alternate;
-  margin-bottom: 0.6em;
+  margin-bottom: 0.7em;
   pointer-events: none;
 }
 @keyframes bounce {
   from { transform: translateY(0); }
-  to   { transform: translateY(9px);}
+  to   { transform: translateY(11px);}
 }
 
-/* Main compact card for rest of content */
-main {
-  width: 100vw; background: #faf8f6;
-}
+/* Main card (compact, doodly) */
+main { width: 100vw; background: #faf8f6; }
 .main-card {
-  margin: -2em auto 1.9em auto; /* negative margin for overlap, remove if unwanted */
+  margin: -2.7em auto 2.7em auto;
   background: #fffbe9;
-  max-width: 540px;
+  max-width: 480px; /* match video width for harmony */
   width: 98vw;
   border-radius: 22px;
   box-shadow: 0 6px 24px #e4b83f33;
@@ -74,7 +79,7 @@ main {
 }
 .quote {
   font-family: 'Great Vibes', cursive;
-  font-size: 1.6em;
+  font-size: 1.4em;
   color: #b89036;
   letter-spacing: 1px;
   margin: 0.8em 0 0.4em 0;
@@ -84,9 +89,9 @@ main {
   font-size: 1.08em;
   color: #ffd700;
   background: #fae08f;
-  padding: .4em .8em;
+  padding: .38em .88em;
   border-radius: 12px;
-  margin: 1.4em auto 1.1em auto;
+  margin: 1.1em auto 1.19em auto;
   display: inline-block;
   box-shadow: 0 2px 8px #ead16444;
   animation: bounce-text 1.2s infinite alternate;
@@ -97,19 +102,23 @@ main {
 }
 
 .char-section {
-  display: flex; flex-direction: column; align-items: center; gap: 2em;
-  margin-top: 2em;
+  display: flex; flex-direction: column; align-items: center; gap: 2.2em;
+  margin-top: 1.5em;
 }
-
 .char-block {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   margin-bottom: 0.8em;
 }
+
+/* For aspect ratio portrait images (matching video): */
 .char-img {
   display: block;
-  width: 110px; height: 110px;
+  width: 96px;
+  height: 172px;
+  max-width: 95vw;
+  max-height: 36vw;
   object-fit: cover;
-  border-radius: 70px;
+  border-radius: 17px; /* change to 50% for circle avatar below */
   box-shadow: 0 4px 18px #ffd70088;
   border: 4px dashed #dabe8e70;
   background: #ffe0a1;
@@ -120,29 +129,40 @@ main {
   border-color: #ffd700;
   box-shadow: 0 0 16px 6px #ffd700c0, 0 0 4px #fff;
 }
+
+/* If you want the images as circles (avatars), just UNCOMMENT below: */
+/*
+.char-img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+*/
+
 .char-label {
-  font-size: 1.1em;
+  font-size: 1.08em;
   color: #b89036;
   background: #f9e0a8cc;
-  padding: .16em .8em;
+  padding: .13em .83em;
   border-radius: 10px;
-  margin: 0.7em auto 0.2em auto;
+  margin: 0.7em auto 0.12em auto;
   font-family: 'Indie Flower', cursive;
   letter-spacing: .8px;
   text-shadow: 0 1px 6px #fff7;
   user-select: none;
 }
 .message {
-  font-size: 1.14em;
+  font-size: 1.12em;
   font-family: 'Indie Flower', cursive;
   background: #fffbe9;
   color: #825800;
   padding: 1.1em 0.65em;
-  margin: 0.35em auto 0.1em auto;
+  margin: 0.36em auto 0.1em auto;
   border: 3px dashed #fffab7;
   border-radius: 18px;
   box-shadow: 0 1px 8px #ffeebb22;
-  min-height: 36px; max-width: 94vw;
+  min-height: 36px; max-width: 90vw;
   transition: height 0.6s, opacity 0.7s;
   opacity: 1;
 }
@@ -156,7 +176,7 @@ main {
 footer {
   background: #ffe3a7;
   border-radius: 19px 19px 0 0;
-  max-width: 540px;
+  max-width: 480px;
   margin: 2.4em auto 0 auto;
   text-align: center;
   font-size: 1em;
@@ -166,15 +186,10 @@ footer {
   box-shadow: 0 -2px 14px #e5c67638;
 }
 
-/* Responsive for small screens */
-@media (max-width: 700px) {
-  html, body { font-size: 1.09em; }
-  main, .main-card { padding-left: 0.2em; padding-right: 0.2em; }
-}
 @media (max-width: 500px) {
   html, body { font-size: 1em; }
-  .main-card { padding: 1.22em 0.25em 1em 0.25em; }
-  .answer header, .sub-head { font-size: 1.18em; }
-  .message { font-size: 1.03em; }
-  .char-img { width: 78px; height: 78px; }
+  .main-card { padding-left: 0.1em; padding-right: 0.1em; max-width: 99vw;}
+  .answer header, .sub-head { font-size: 1.13em; }
+  .message { font-size: 1.02em; }
+  .char-img { width: 74px; height: 132px; }
 }
