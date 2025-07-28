@@ -1,4 +1,4 @@
-// Enable video audio after first user gesture (for mobile browser policies)
+// Enable video audio after first user gesture (for mobile policies)
 window.addEventListener('touchend', enableVideoAudio, { once: true });
 window.addEventListener('click', enableVideoAudio, { once: true });
 
@@ -10,28 +10,26 @@ function enableVideoAudio() {
   }
 }
 
-// Typewriter + reveal message with audio for each character
-const characterButtons = document.querySelectorAll('.character');
+// Typewriter message effect with audio for each character
+const characterButtons = document.querySelectorAll('.char-img');
 characterButtons.forEach(Element => Element.addEventListener('click', showMessage));
 
 function showMessage(event) {
     const index = event.target.getAttribute('data-index');
     const message = document.querySelector(`.m${index}`);
     const audio = document.getElementById(`audio${index}`);
-
-    // If already open, collapse it
-    if (!message.classList.contains('collapsed')) {
-      message.classList.add('collapsed');
-      event.target.classList.remove('playing');
-      audio && audio.pause();
-      audio && (audio.currentTime = 0);
-      return;
-    }
-
     // Collapse all first
     document.querySelectorAll('.message').forEach(m => m.classList.add('collapsed'));
-    document.querySelectorAll('.character').forEach(img => img.classList.remove('playing'));
-    // Reveal and play with typewriter
+    document.querySelectorAll('.char-img').forEach(img => img.classList.remove('playing'));
+    // If already open, collapse
+    if (!message.classList.contains('collapsed')) {
+      audio && audio.pause();
+      audio && (audio.currentTime = 0);
+      message.classList.add('collapsed');
+      event.target.classList.remove('playing');
+      return;
+    }
+    // Reveal with typewriter
     const messageCopy = message.textContent;
     message.classList.remove('collapsed');
     message.textContent = '';
