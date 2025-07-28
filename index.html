@@ -6,53 +6,48 @@
   <title>Harry Potter Love Magic</title>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
-  <!-- Fonts for doodly/cute style -->
   <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400;500;700&family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- HERO SECTION -->
-  <div class="hero section" id="hero">
-    <div class="video-frame">
-      <video id="mainvid" src="video.mp4" loop autoplay playsinline muted poster="himage.jpg"></video>
-      <!-- Optional: Place doodle SVGs here, e.g.:
-           <img src="wand.svg" class="wand absolute" alt="">
-           <img src="bolt.svg" class="bolt absolute" alt="">
-           <img src="star.svg" class="star absolute" alt="">
-      -->
+  <!-- HERO VIDEO FULLSCREEN -->
+  <section class="fullscreen-hero">
+    <video id="mainvid" src="video.mp4" autoplay loop playsinline muted poster="himage.jpg"></video>
+    <div class="overlay">
+      <header>Harry Potter &hearts; Love Magic</header>
+      <span class="down-indicator">&#8595;</span>
     </div>
-    <div class="answer">
-      <header class="arrow">Harry Potter &hearts; Love Magic</header>
+  </section>
+
+  <!-- MAIN COMPACT CONTENT CARD -->
+  <main>
+    <div class="main-card">
+      <div class="quote">“After all this time?”<br><b>“Always.”</b></div>
+      <div class="scroll-magic">Scroll down for magic!</div>
+      <div class="char-section">
+        <div class="char-block">
+          <img src="himage.jpg" class="char-img" id="char1" alt="Harry" data-index="1">
+          <audio id="audio1" src="audio1.mp3"></audio>
+          <span class="char-label">Harry</span>
+          <p class="message m1 collapsed">“I promise, just like real magic, my love and friendship will always be on your side. Through mischief and mystery, you can always count on this wizard!”</p>
+        </div>
+        <div class="char-block">
+          <img src="hiimage.jpg" class="char-img" id="char2" alt="Hermione" data-index="2">
+          <audio id="audio2" src="audio2.mp3"></audio>
+          <span class="char-label">Hermione</span>
+          <p class="message m2 collapsed">“Even in Hogwarts, books and wisdom don’t compare to the magic of true friendship and love. You are cherished, always!”</p>
+        </div>
+        <div class="char-block">
+          <img src="h1image.jpg" class="char-img" id="char3" alt="Ron" data-index="3">
+          <audio id="audio3" src="audio3.mp3"></audio>
+          <span class="char-label">Ron</span>
+          <p class="message m3 collapsed">“No matter how bonkers things get, remember: you have a friend who will share every Chocolate Frog and adventure — always!”</p>
+        </div>
+      </div>
     </div>
-  </div>
-
-  <!-- CHARACTER SECTIONS -->
-  <div class="section">
-    <p class="sub-head">Harry's Message</p>
-    <img data-index="1" src="himage.jpg" alt="Harry" class="character">
-    <audio id="audio1" src="audio1.mp3"></audio>
-    <p class="message m1 collapsed">“I promise, just like real magic, my love and friendship will always be on your side. Through mischief and mystery, you can always count on this wizard!”</p>
-  </div>
-  <div class="section">
-    <p class="sub-head">Hermione's Message</p>
-    <img data-index="2" src="hiimage.jpg" alt="Hermione" class="character">
-    <audio id="audio2" src="audio2.mp3"></audio>
-    <p class="message m2 collapsed">“Even in Hogwarts, books and wisdom don’t compare to the magic of true friendship and love. You are cherished, always!”</p>
-  </div>
-  <div class="section">
-    <p class="sub-head">Ron's Message</p>
-    <img data-index="3" src="h1image.jpg" alt="Ron" class="character">
-    <audio id="audio3" src="audio3.mp3"></audio>
-    <p class="message m3 collapsed">“No matter how bonkers things get, remember: you have a friend who will share every Chocolate Frog and adventure — always!”</p>
-  </div>
-
-  <!-- FINAL SECTION: optional -->
-  <div class="full-height">
-    <header>Always — That's the real magic</header>
-    <div class="barbie"><img src="himage.jpg" alt="" class="barbie-pic">Wizard</div>
-  </div>
-  <div class="footer section">
-    <p>made with &lt;3 by anas.ike</p>
-  </div>
+    <footer>
+      <p>made with &lt;3 by anas.ike</p>
+    </footer>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
