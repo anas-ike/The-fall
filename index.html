@@ -46,10 +46,33 @@
       width: 100%;
       pointer-events: none;
     }
+    .gallery-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .gallery-text {
+      margin-bottom: 20px;
+      background: #fff3ab;
+      color: #31204f;
+      padding: 10px 32px;
+      border-radius: 22px;
+      font-size: 1.18em;
+      font-family: 'Indie Flower', cursive;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #1c133066;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .gallery-text:active {
+      background: #f8e048;
+    }
     .gallery {
-      margin-top: 40px; 
-      display: flex; 
-      justify-content: center; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 40px;
     }
     .doodle-frame { 
@@ -59,22 +82,18 @@
       padding: 25px; 
       box-shadow: 0 6px 16px #31204f88; 
       cursor: pointer; 
+      transition: transform 0.17s, box-shadow 0.17s;
+    }
+    .doodle-frame:hover {
+      transform: scale(1.08) rotate(-2deg);
+      box-shadow: 0 9px 24px #6e56b199;
     }
     .character-img { 
       width: 170px; 
       height: 240px; 
       object-fit: cover; 
       border-radius: 12px; 
-    }
-    .speech-bubble { 
-      text-align: center;
-      margin: 25px 0 0 0;
-      background: #fff3ab; 
-      color: #31204f; 
-      padding: 10px 21px; 
-      border-radius: 22px; 
-      font-size: 1.1em; 
-      display: inline-block;
+      display: block;
     }
     .owl-mascot { 
       position: fixed; 
@@ -84,30 +103,63 @@
       z-index: 3; 
       cursor: pointer; 
     }
-    @media (max-width:650px) {
+    /* Magical animated text styles */
+    .magic-animations {
+      margin: 60px auto 30px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .magical-text {
+      color: #fff3ab;
+      font-size: 2em;
+      font-family: 'Lobster', cursive;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 14px #dab253, 0 0 36px #ffe36a;
+      animation: magicFade 2.2s infinite alternate;
+    }
+    .magical-text:nth-child(2) { animation-delay: 0.7s; }
+    .magical-text:nth-child(3) { animation-delay: 1.2s; }
+    @keyframes magicFade {
+      from { opacity: 0.64; transform: scale(1.02); text-shadow: 0 0 20px #e3b04c; }
+      to   { opacity: 1;    transform: scale(1.12); text-shadow: 0 0 46px #fffdb9; }
+    }
+    @media (max-width:700px) {
+      .gallery { gap: 15px; }
+      .magical-text { font-size: 1.1em;}
       .video-bg-centered { height: 60vh; }
     }
   </style>
 </head>
 <body>
   <div class="video-center-wrap">
-    <video class="video-bg-centered" src="video.mp4" autoplay muted loop playsinline></video>
+    <video class="video-bg-centered" src="harrypotter_intro.mp4" autoplay muted loop playsinline></video>
     <div class="front-text">
       Welcome to The Magic Begins—<br>
       <span style="font-size:0.7em;">Your Wizarding Adventure Awaits!</span>
     </div>
   </div>
-  <div class="speech-bubble">Tap a friend to hear their message!</div>
-  <div class="gallery">
-    <div class="doodle-frame" onclick="playVoice('hagrid.mp3')">
-      <img src="hiimage.jpg" class="character-img" alt="Hagrid" />
+  <!-- Centered gallery and clickable text -->
+  <div class="gallery-wrap">
+    <div class="gallery-text" onclick="magicalInstruction()">Tap your favorite friend!</div>
+    <div class="gallery">
+      <div class="doodle-frame" onclick="playVoice('hagrid.mp3')">
+        <img src="hiimage.jpg" class="character-img" alt="Hagrid" />
+      </div>
+      <div class="doodle-frame" onclick="playVoice('hermione.mp3')">
+        <img src="h1image.jpg" class="character-img" alt="Hermione" />
+      </div>
+      <div class="doodle-frame" onclick="playVoice('harry.mp3')">
+        <img src="himage.jpg" class="character-img" alt="Harry" />
+      </div>
     </div>
-    <div class="doodle-frame" onclick="playVoice('hermione.mp3')">
-      <img src="h1image.jpg" class="character-img" alt="Hermione" />
-    </div>
-    <div class="doodle-frame" onclick="playVoice('harry.mp3')">
-      <img src="himage.jpg" class="character-img" alt="Harry" />
-    </div>
+  </div>
+  <!-- Animated magical Harry Potter text lines below -->
+  <div class="magic-animations">
+    <div class="magical-text">Expecto Patronum!</div>
+    <div class="magical-text">Wingardium Leviosa!</div>
+    <div class="magical-text">You're a wizard, Harry!</div>
   </div>
   <img src="doodly-owl.png" class="owl-mascot" title="Hoot! Need tips?"/>
   <audio id="voice-note" hidden></audio>
@@ -116,6 +168,12 @@
         var audio = document.getElementById("voice-note");
         audio.src = filename;
         audio.play();
+     }
+     function magicalInstruction() {
+        // Run a sparkle effect or fun visual - you can customize this!
+        let txt = document.querySelector('.gallery-text');
+        txt.style.background = '#ffe36a';
+        setTimeout(()=>{ txt.style.background = '#fff3ab'; }, 350);
      }
   </script>
 </body>
