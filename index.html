@@ -19,29 +19,32 @@
       justify-content: center;
       min-height: 100vh;
       background: rgba(46,31,67,0.45);
+      position: relative;
+      flex-direction: column;
     }
     .video-bg-centered {
-      width: 90vw;
-      height: 50vw;
-      max-width: 1100px;
-      max-height: 700px;
-      object-fit: cover;
-      display: block;
+      width: auto;
+      height: 90vh;
+      max-height: 95vh;
+      aspect-ratio: 480 / 864;
       border: 8px solid #fff3ab;
       border-radius: 28px;
       box-shadow: 0 8px 32px #1c1330aa;
       background: #3d2a58;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
     }
     .front-text {
       position: absolute;
-      top: 13vh;
+      top: 7vh;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
       font-family: Lobster, cursive;
-      font-size: 2.5em;
+      font-size: 2.2em;
       width: 100%;
-      pointer-events:none;
+      pointer-events: none;
     }
     .gallery {
       margin-top: 40px; 
@@ -71,7 +74,7 @@
       padding: 10px 21px; 
       border-radius: 22px; 
       font-size: 1.1em; 
-      display:inline-block;
+      display: inline-block;
     }
     .owl-mascot { 
       position: fixed; 
@@ -81,11 +84,14 @@
       z-index: 3; 
       cursor: pointer; 
     }
+    @media (max-width:650px) {
+      .video-bg-centered { height: 60vh; }
+    }
   </style>
 </head>
 <body>
   <div class="video-center-wrap">
-    <video class="video-bg-centered" src="video.mp4" autoplay muted loop></video>
+    <video class="video-bg-centered" src="video.mp4" autoplay muted loop playsinline></video>
     <div class="front-text">
       Welcome to The Magic Begins—<br>
       <span style="font-size:0.7em;">Your Wizarding Adventure Awaits!</span>
