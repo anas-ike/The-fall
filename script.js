@@ -10,7 +10,7 @@ function enableVideoAudio() {
   }
 }
 
-// Reveal message per character, typewriter + audio
+// Typewriter + reveal message with audio for each character
 const characterButtons = document.querySelectorAll('.character');
 characterButtons.forEach(Element => Element.addEventListener('click', showMessage));
 
