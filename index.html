@@ -5,23 +5,91 @@
   <title>The Magic Begins</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster">
   <style>
-    body { margin: 0; font-family: 'Indie Flower', cursive; background: #2e1f43; color: #fff; }
-    .video-bg { position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;object-fit:cover;}
-    .overlay { position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(46,31,67,0.45);z-index:1;}
-    .front-text { position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);text-align:center;font-family:Lobster,cursive;font-size:2.5em;}
-    .gallery { margin-top:110vh; display:flex; justify-content:center; gap:40px;}
-    .doodle-frame { border:5px dashed #fff3ab; border-radius:20px; background:#3d2a58; padding:25px; box-shadow:0 6px 16px #31204f88; cursor:pointer; }
-    .character-img { width:170px; height:240px; object-fit:cover; border-radius:12px; }
-    .speech-bubble { position:absolute; top:100vh; left:50%; transform:translateX(-50%); background:#fff3ab; color:#31204f; padding:10px 21px; border-radius:22px; font-size:1.1em; z-index:2;}
-    .owl-mascot { position:fixed; right:27px; bottom:20px; width:70px; z-index:3; cursor:pointer;}
+    body { 
+      margin: 0; 
+      font-family: 'Indie Flower', cursive; 
+      background: #2e1f43; 
+      color: #fff; 
+      min-height: 100vh; 
+      overflow-x: hidden;
+    }
+    .video-center-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: rgba(46,31,67,0.45);
+    }
+    .video-bg-centered {
+      width: 90vw;
+      height: 50vw;
+      max-width: 1100px;
+      max-height: 700px;
+      object-fit: cover;
+      display: block;
+      border: 8px solid #fff3ab;
+      border-radius: 28px;
+      box-shadow: 0 8px 32px #1c1330aa;
+      background: #3d2a58;
+    }
+    .front-text {
+      position: absolute;
+      top: 13vh;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      font-family: Lobster, cursive;
+      font-size: 2.5em;
+      width: 100%;
+      pointer-events:none;
+    }
+    .gallery {
+      margin-top: 40px; 
+      display: flex; 
+      justify-content: center; 
+      gap: 40px;
+    }
+    .doodle-frame { 
+      border: 5px dashed #fff3ab; 
+      border-radius: 20px; 
+      background: #3d2a58; 
+      padding: 25px; 
+      box-shadow: 0 6px 16px #31204f88; 
+      cursor: pointer; 
+    }
+    .character-img { 
+      width: 170px; 
+      height: 240px; 
+      object-fit: cover; 
+      border-radius: 12px; 
+    }
+    .speech-bubble { 
+      text-align: center;
+      margin: 25px 0 0 0;
+      background: #fff3ab; 
+      color: #31204f; 
+      padding: 10px 21px; 
+      border-radius: 22px; 
+      font-size: 1.1em; 
+      display:inline-block;
+    }
+    .owl-mascot { 
+      position: fixed; 
+      right: 27px; 
+      bottom: 20px; 
+      width: 70px; 
+      z-index: 3; 
+      cursor: pointer; 
+    }
   </style>
 </head>
 <body>
-  <video class="video-bg" src="video.mp4" autoplay muted loop></video>
-  <div class="overlay"></div>
-  <div class="front-text">
-    Welcome to The Magic Begins—<br>
-    <span style="font-size:0.7em;">Your Wizarding Adventure Awaits!</span>
+  <div class="video-center-wrap">
+    <video class="video-bg-centered" src="video.mp4" autoplay muted loop></video>
+    <div class="front-text">
+      Welcome to The Magic Begins—<br>
+      <span style="font-size:0.7em;">Your Wizarding Adventure Awaits!</span>
+    </div>
   </div>
   <div class="speech-bubble">Tap a friend to hear their message!</div>
   <div class="gallery">
