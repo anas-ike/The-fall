@@ -2,154 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>The Fall — Magical Q&A</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Bangers|Great+Vibes&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0; padding: 0;
-      min-height: 100vh;
-      background: #faf8f6;
-      font-family: 'Indie Flower', cursive;
-      display: flex; flex-direction: column; align-items: center;
-    }
-    .main-card {
-      margin: 32px auto 0 auto;
-      background: #fffbe9;
-      max-width: 340px;
-      width: 96vw;
-      border-radius: 20px;
-      box-shadow: 0 6px 24px #e4b83f44;
-      padding: 2em 1em 1.5em 1em;
-      text-align: center;
-      position: relative;
-    }
-    .main-title {
-      font-family: 'Bangers', cursive;
-      font-size: 2em;
-      margin: .2em 0 .15em 0;
-      color: #e1ae3e;
-      text-shadow: 0 2px 10px #ead16499;
-      letter-spacing: 2px;
-    }
-    .quote {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.35em;
-      color: #b89036;
-      margin: 1.3em 0 1.2em 0;
-      letter-spacing: 1px;
-    }
-    .scroll-magic {
-      font-family: 'Indie Flower', cursive;
-      font-size: 1.05em;
-      color: #ffd700;
-      background: #fae08f;
-      padding: .4em .8em;
-      border-radius: 12px;
-      margin: 2em auto 1.1em auto;
-      display: inline-block;
-      box-shadow: 0 2px 8px #ead16444;
-      animation: bounce-text 1.2s infinite alternate;
-    }
-    @keyframes bounce-text {
-      from { transform: translateY(0);}
-      to   { transform: translateY(5px);}
-    }
-    .char-section {
-      margin: 0 auto 0 auto;
-      display: flex; flex-direction: column; align-items: center; gap: 1.2em;
-    }
-    .char-block {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-    }
-    .char-img {
-      display: block;
-      width: 92px;
-      height: 92px;
-      object-fit: cover;
-      border: 3px dashed #ffea85;
-      border-radius: 60px;
-      box-shadow: 0 4px 18px #ffe38588;
-      margin-bottom: 0.48em;
-      transition: box-shadow .2s;
-      background: #fff4cb;
-    }
-    .char-img:active,
-    .char-img.playing { box-shadow: 0 0 16px 4px #ffd700be, 0 0 4px #fff; }
-    .char-label {
-      font-size: 1.14em;
-      color: #b89036;
-      background: #f9e0a8cc;
-      padding: .16em .8em;
-      border-radius: 10px;
-      margin-bottom: 2px;
-      font-family: 'Indie Flower', cursive;
-      letter-spacing: .8px;
-      text-shadow: 0 1px 6px #fff7;
-      user-select:none;
-    }
-    @media (max-width: 400px) {
-      .main-card { padding: 1.2em 1em 1em 1em; }
-      .char-img { width: 62px; height: 62px; }
-      .main-title { font-size: 1.4em;}
-    }
-  </style>
+  <title>Harry Potter Love Magic</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+  <!-- Fonts for doodly/cute style -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Caveat:wght@400;500;700&family=Indie+Flower&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="main-card">
-    <div class="main-title">Harry Potter Love Magic</div>
-    <div class="quote">“After all this time?”<br> <b>“Always.”</b></div>
-    <div class="scroll-magic">Scroll down for magic!</div>
-    <div class="char-section">
-      <div class="char-block">
-        <img src="himage.jpg" class="char-img" id="char1" alt="Harry">
-        <span class="char-label">Harry</span>
-      </div>
-      <div class="char-block">
-        <img src="hiimage.jpg" class="char-img" id="char2" alt="Hermione">
-        <span class="char-label">Hermione</span>
-      </div>
-      <div class="char-block">
-        <img src="h1image.jpg" class="char-img" id="char3" alt="Ron">
-        <span class="char-label">Ron</span>
-      </div>
+  <!-- HERO SECTION -->
+  <div class="hero section" id="hero">
+    <div class="video-frame">
+      <video id="mainvid" src="video.mp4" loop autoplay playsinline muted poster="himage.jpg"></video>
+      <!-- Optional: Place doodle SVGs here, e.g.:
+           <img src="wand.svg" class="wand absolute" alt="">
+           <img src="bolt.svg" class="bolt absolute" alt="">
+           <img src="star.svg" class="star absolute" alt="">
+      -->
+    </div>
+    <div class="answer">
+      <header class="arrow">Harry Potter &hearts; Love Magic</header>
     </div>
   </div>
-  <audio id="audio1" src="audio1.mp3"></audio>
-  <audio id="audio2" src="audio2.mp3"></audio>
-  <audio id="audio3" src="audio3.mp3"></audio>
-  <script>
-    // Audio-on-click logic
-    const sounds = [
-      { img: 'char1', audio: 'audio1' },
-      { img: 'char2', audio: 'audio2' },
-      { img: 'char3', audio: 'audio3' }
-    ];
-    sounds.forEach(function(item){
-      const img = document.getElementById(item.img);
-      const audio = document.getElementById(item.audio);
-      img.addEventListener('touchend', function(e){
-        e.preventDefault();
-        sounds.forEach(obj => {
-          const a = document.getElementById(obj.audio);
-          a.pause(); a.currentTime = 0;
-          document.getElementById(obj.img).classList.remove('playing');
-        });
-        audio.play();
-        img.classList.add('playing');
-        setTimeout(()=>img.classList.remove('playing'), 520);
-      }, { passive: false });
-      img.addEventListener('click', function() {
-        sounds.forEach(obj => {
-          const a = document.getElementById(obj.audio);
-          a.pause(); a.currentTime = 0;
-          document.getElementById(obj.img).classList.remove('playing');
-        });
-        audio.play();
-        img.classList.add('playing');
-        setTimeout(()=>img.classList.remove('playing'), 520);
-      });
-    });
-  </script>
+
+  <!-- CHARACTER SECTIONS -->
+  <div class="section">
+    <p class="sub-head">Harry's Message</p>
+    <img data-index="1" src="himage.jpg" alt="Harry" class="character">
+    <audio id="audio1" src="audio1.mp3"></audio>
+    <p class="message m1 collapsed">“I promise, just like real magic, my love and friendship will always be on your side. Through mischief and mystery, you can always count on this wizard!”</p>
+  </div>
+  <div class="section">
+    <p class="sub-head">Hermione's Message</p>
+    <img data-index="2" src="hiimage.jpg" alt="Hermione" class="character">
+    <audio id="audio2" src="audio2.mp3"></audio>
+    <p class="message m2 collapsed">“Even in Hogwarts, books and wisdom don’t compare to the magic of true friendship and love. You are cherished, always!”</p>
+  </div>
+  <div class="section">
+    <p class="sub-head">Ron's Message</p>
+    <img data-index="3" src="h1image.jpg" alt="Ron" class="character">
+    <audio id="audio3" src="audio3.mp3"></audio>
+    <p class="message m3 collapsed">“No matter how bonkers things get, remember: you have a friend who will share every Chocolate Frog and adventure — always!”</p>
+  </div>
+
+  <!-- FINAL SECTION: optional -->
+  <div class="full-height">
+    <header>Always — That's the real magic</header>
+    <div class="barbie"><img src="himage.jpg" alt="" class="barbie-pic">Wizard</div>
+  </div>
+  <div class="footer section">
+    <p>made with &lt;3 by anas.ike</p>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
