@@ -44,7 +44,11 @@
       font-family: Lobster, cursive;
       font-size: 2.2em;
       width: 100%;
-      pointer-events: none;
+      cursor: pointer;
+      pointer-events: auto;
+      background: rgba(32,17,48,0.12);
+      user-select: none;
+      z-index: 2;
     }
     .gallery-wrap {
       display: flex;
@@ -65,6 +69,7 @@
       box-shadow: 0 2px 8px #1c133066;
       user-select: none;
       transition: background 0.2s;
+      text-align: center;
     }
     .gallery-text:active {
       background: #f8e048;
@@ -134,10 +139,19 @@
 </head>
 <body>
   <div class="video-center-wrap">
-    <video class="video-bg-centered" src="video.mp4" autoplay muted loop playsinline></video>
-    <div class="front-text">
+    <video
+      class="video-bg-centered"
+      src="harrypotter_intro.mp4"
+      id="main-video"
+      preload="auto"
+      loop
+      playsinline
+      controls
+      style="background:#3d2a58;"
+    ></video>
+    <div class="front-text" onclick="playVideo()">
       Welcome to The Magic Begins—<br>
-      <span style="font-size:0.7em;">Your Wizarding Adventure Awaits!</span>
+      <span style="font-size:0.7em;">Click here to start the magic with sound!</span>
     </div>
   </div>
   <!-- Centered gallery and clickable text -->
@@ -164,13 +178,17 @@
   <img src="doodly-owl.png" class="owl-mascot" title="Hoot! Need tips?"/>
   <audio id="voice-note" hidden></audio>
   <script>
+     function playVideo() {
+        var video = document.getElementById('main-video');
+        video.muted = false;
+        video.play();
+     }
      function playVoice(filename) {
         var audio = document.getElementById("voice-note");
         audio.src = filename;
         audio.play();
      }
      function magicalInstruction() {
-        // Run a sparkle effect or fun visual - you can customize this!
         let txt = document.querySelector('.gallery-text');
         txt.style.background = '#ffe36a';
         setTimeout(()=>{ txt.style.background = '#fff3ab'; }, 350);
